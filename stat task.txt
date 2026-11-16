@@ -1,0 +1,359 @@
+# **Data Analysis Statistics Examination – 
+
+## **Section A**
+
+### **Q1. Variables**
+
+**(a) Identify the type of variables.**
+
+- Course – **Nominal:** Categories without any specific order.
+- Satisfaction – **Ordinal:** Categories with a meaningful order or ranking.
+- Assignments Completed – **Discrete:** Countable numerical values.
+- Task Completion Time – **Continuous:** Measurable values that can include decimals.
+
+**(b) Why should Student IDs not be used to calculate the mean?**
+
+Student IDs are unique identification numbers. They do not represent quantity or have any mathematical order. Therefore, calculating their mean has no meaningful interpretation.
+
+### **Q2. Population and Sample**
+
+**(a) Identify the population and sample.**
+
+- Population: All 240 Data Analytics students.
+- Sample: 30 selected top students.
+
+**(b) Identify the type of statistics.**
+
+Inferential Statistics – We use sample data to draw conclusions about the entire population.
+
+**(c) Is the sample biased? Explain.**
+
+Yes, the sample is biased because only the top 30 students were selected. Their average score may be higher than the average score of all 240 students.
+
+### **Q3. Mean, Median and Mode**
+
+Given data: 12, 15, 15, 18, 40
+
+**(a) Calculate Mean, Median and Mode.**
+
+- Mean = Sum of values / Number of values
+- Mean = 100 / 5 = **20**
+- Median = Middle value = **15**
+- Mode = Most frequently occurring value = **15**
+
+**(b) Which measure is the best representation of typical time?**
+
+Median (15) is the best measure because 40 is an outlier that increases the mean. The median represents the typical completion time more accurately.
+
+## **Section B**
+
+### **Q4. Variance and Standard Deviation**
+
+Given data: 2, 4, 4, 6
+
+**(a) Calculate the mean.**
+
+Mean = (2 + 4 + 4 + 6) / 4
+
+Mean = 16 / 4 = **4**
+
+**(b) Calculate the deviations and squared deviations.**
+
+| Value     | Deviation (x − Mean) | Squared Deviation |
+| --------- | -------------------- | ----------------- |
+| 2         | -2                   | 4                 |
+| 4         | 0                    | 0                 |
+| 4         | 0                    | 0                 |
+| 6         | 2                    | 4                 |
+| **Total** | **0**                | **8**             |
+
+**(c) Calculate Population Variance and Population Standard Deviation.**
+
+Population Variance = 8 / 4 = **2**
+
+Population Standard Deviation = √2 = **1.4142**
+
+**(d) Calculate Sample Variance.**
+
+Sample Variance = 8 / (4 − 1)
+
+\= 8 / 3 = **2.6667**
+
+### **Q5. Quartiles and Outliers**
+
+Given data: 4, 6, 7, 8, 9, 10, 12, 30
+
+Number of observations (n) = 8
+
+**(a) Calculate Q1 and Q3.**
+
+Q1 Position = (n − 1) × 0.25
+
+\= 7 × 0.25 = 1.75
+
+Q1 = 6 + 0.75 × (7 − 6) = **6.75**
+
+Q3 Position = 7 × 0.75 = 5.25
+
+Q3 = 10 + 0.25 × (12 − 10) = **10.5**
+
+**(b) Calculate Interquartile Range (IQR).**
+
+IQR = Q3 − Q1
+
+\= 10.5 − 6.75 = **3.75**
+
+**(c) Calculate the lower and upper fences.**
+
+Lower Fence = Q1 − 1.5 × IQR
+
+\= 6.75 − 5.625 = **1.125**
+
+Upper Fence = Q3 + 1.5 × IQR
+
+\= 10.5 + 5.625 = **16.125**
+
+**(d) Identify the outlier.**
+
+30 is an outlier because it is greater than the upper fence (16.125).
+
+**(e) Identify the lower and upper whiskers.**
+
+- Lower Whisker = **4**
+- Upper Whisker = **12**
+
+The value 30 is excluded because it is an outlier.
+
+### **Q6. Python Output**
+
+**(a) Population Variance**
+
+```
+np.var([1, 2, 3], ddof=0)
+```
+
+Output: **0.6667**
+
+**(b) Sample Variance**
+
+```
+np.var([1, 2, 3], ddof=1)
+```
+
+Output: **1.0**
+
+**(c) Filter values greater than the mean.**
+
+```
+x = np.array([1, 2, 3])mean = np.mean(x)x[x > mean]
+```
+
+Output:
+
+```
+[3]
+```
+
+## **Section C**
+
+### **Q7. Covariance and Correlation**
+
+Given:
+
+- X = 1, 2, 3, 4
+- Y = 20, 40, 60, 80
+
+**(a) Calculate the mean of X and Y.**
+
+Mean of X = (1 + 2 + 3 + 4) / 4 = **2.5**
+
+Mean of Y = (20 + 40 + 60 + 80) / 4 = **50**
+
+**(b) Calculate deviations and their products.**
+
+| X | Y  | X Deviation | Y Deviation | Product |
+| - | -- | ----------- | ----------- | ------- |
+| 1 | 20 | -1.5        | -30         | 45      |
+| 2 | 40 | -0.5        | -10         | 5       |
+| 3 | 60 | 0.5         | 10          | 5       |
+| 4 | 80 | 1.5         | 30          | 45      |
+|   |    |             | **Total**   | **100** |
+
+**(c) Calculate Sample Covariance.**
+
+Sample Covariance = 100 / (4 − 1)
+
+\= 100 / 3 = **33.3333**
+
+**(d) Calculate the sample variances of X and Y.**
+
+Variance of X = 5 / 3 = **1.6667**
+
+Variance of Y = 2000 / 3 = **666.6667**
+
+**(e) Calculate the correlation coefficient.**
+
+\\[ r=\frac{\operatorname{Cov}(X,Y)}{S_X S_Y} \\]
+
+\\[ r=\frac{33.3333}{\sqrt{1.6667\times666.6667}} \\]
+
+Answer: **r = +1.0**
+
+Interpretation: There is a perfect positive correlation between X and Y. When X increases, Y also increases proportionally.
+
+### **Q8. Correlation – Conclusions**
+
+**(a) Which correlation is stronger: +0.60 or −0.85?**
+
+**−0.85 is stronger** because its absolute value (0.85) is greater than 0.60. The negative sign indicates an inverse relationship.
+
+**(b) If correlation is zero, does it mean there is no relationship?**
+
+No. It means there is no linear relationship. A non-linear relationship may still exist, such as a parabolic relationship (Y = X²).
+
+**(c) What happens when one column has a constant value?**
+
+Correlation is **undefined** because the variance is zero, resulting in division by zero.
+
+**(d) Does correlation prove causation?**
+
+No. Correlation does not imply causation. Other factors, such as talent, interest or experience, may influence the relationship.
+
+## **Section D**
+
+### **Q9. Probability Distributions**
+
+**(a) Bernoulli Distribution**
+
+Used for an experiment with two possible outcomes: success or failure.
+
+Example: Probability of success = 0.2.
+
+Answer: **Bernoulli (p = 0.2)**
+
+**(b) Binomial Distribution**
+
+Used to calculate the number of successes in a fixed number of independent trials.
+
+Answer: **Binomial (n = 6, p = 0.5)**
+
+**(c) Poisson Distribution**
+
+Used to calculate the number of events occurring within a specific time or space interval.
+
+Given rate = 4 calls per hour.
+
+For 30 minutes, λ = 4 × 0.5 = 2.
+
+Answer: **Poisson (λ = 2)**
+
+**(d) Normal Distribution**
+
+A continuous, bell-shaped probability distribution.
+
+Answer: **Normal (μ = 100, σ = 15)**
+
+**(e) Uniform Distribution**
+
+A distribution where all values within a given interval have equal probability density.
+
+Answer: **Continuous Uniform (a = 5, b = 15)**
+
+### **Q10. Probability Calculations**
+
+**(a) Binomial Distribution**
+
+Given:
+
+\\[ X\sim Binomial(4,0.5) \\]
+
+**(i) Calculate P(X = 2).**
+
+\\[ P(X=2)=\binom{4}{2}(0.5)^2(0.5)^2 \\]
+
+\\[ =6\times0.0625 \\]
+
+Answer: **0.375**
+
+**(ii) Calculate P(X ≥ 1).**
+
+\\[ P(X\geq1)=1-P(X=0) \\]
+
+\\[ =1-0.0625 \\]
+
+Answer: **0.9375**
+
+**(b) Normal Distribution**
+
+Given:
+
+Mean (μ) = 50
+
+Standard Deviation (σ) = 5
+
+**(i) Calculate P(Y greater than 60).**
+
+\\[ Z=\frac{60-50}{5}=2 \\]
+
+\\[ P(Y>60)=1-\Phi(2) \\]
+
+\\[ =1-0.9772499 \\]
+
+Answer: **0.0227501**
+
+**(ii) Calculate P(45 less than Y less than 55).**
+
+\\[ Z_1=\frac{45-50}{5}=-1 \\]
+
+\\[ Z_2=\frac{55-50}{5}=1 \\]
+
+\\[ P(45\<Y<55)=\Phi(1)-\Phi(-1) \\]
+
+Answer: **0.6826894**
+
+**(c) Uniform Distribution**
+
+Given:
+
+\\[ T\sim U[10,20] \\]
+
+**(i) Calculate the probability density at T = 15.**
+
+\\[ f(15)=\frac{1}{20-10} \\]
+
+Answer: **0.1**
+
+**(ii) Calculate P(12 ≤ T ≤ 16).**
+
+\\[ P(12\leq T\leq16)=\frac{16-12}{20-10} \\]
+
+Answer: **0.4**
+
+**(d) Python Code**
+
+**(i) Calculate P(X greater than 2) using Binomial Distribution.**
+
+```
+from scipy import statsresult = 1 - stats.binom.cdf(2, 4, 0.5)print(result)
+```
+
+Alternative:
+
+```
+stats.binom.sf(2, 4, 0.5)
+```
+
+**(ii) Calculate P(X greater than 3) using Poisson Distribution.**
+
+```
+from scipy import statsresult = 1 - stats.poisson.cdf(3, 3)print(result)
+```
+
+Alternative:
+
+```
+stats.poisson.sf(3, 3)
+```
+
+
+
